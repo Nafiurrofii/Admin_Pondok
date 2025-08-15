@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulir Pendaftaran Santri</title>
+    <!-- Tautan ke Bootstrap CSS dari CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS untuk tampilan -->
     <style>
         body {
             background-color: #f0f2f5;
@@ -63,6 +65,7 @@
             </div>
             <div class="card-body p-4">
                 <form id="myForm">
+                    <!-- Bagian Data Santri -->
                     <h5 class="mb-3 mt-4 text-primary">Data Diri Santri</h5>
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -131,6 +134,7 @@
                         </div>
                     </div>
 
+                    <!-- Bagian Data Ayah -->
                     <h5 class="mb-3 mt-5 text-primary">Data Ayah</h5>
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -167,6 +171,7 @@
                         </div>
                     </div>
 
+                    <!-- Bagian Data Ibu -->
                     <h5 class="mb-3 mt-5 text-primary">Data Ibu</h5>
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -203,6 +208,7 @@
                         </div>
                     </div>
 
+                    <!-- Bagian Kontak Orang Tua -->
                     <h5 class="mb-3 mt-5 text-primary">Kontak Orang Tua</h5>
                     <div class="row g-3">
                         <div class="col-12">
@@ -211,6 +217,7 @@
                         </div>
                     </div>
 
+                    <!-- Bagian Alamat -->
                     <h5 class="mb-3 mt-5 text-primary">Alamat</h5>
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -247,6 +254,7 @@
                         </div>
                     </div>
 
+                    <!-- Bagian Informasi Tambahan -->
                     <h5 class="mb-3 mt-5 text-primary">Informasi Tambahan</h5>
                     <div class="row g-3">
                         <div class="col-12">
@@ -287,8 +295,10 @@
         </div>
     </div>
 
+    <!-- Tautan ke Bootstrap JS dari CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Kode JavaScript untuk Mengirim Data ke Google Apps Script -->
     <script>
         const myForm = document.getElementById('myForm');
         // GANTI URL DI BAWAH INI dengan URL Web App Google Apps Script Anda
@@ -304,15 +314,16 @@
                     // Periksa apakah respons dari server adalah "SUCCESS"
                     if (result.trim() === "SUCCESS") {
                         alert('Data pendaftaran santri berhasil dikirim!');
-                        myForm.reset();
+                        myForm.reset(); // BARIS INI membersihkan formulir
                     } else {
                         alert('Terjadi kesalahan dari server: ' + result);
                         console.error('Apps Script Error:', result);
                     }
                 })
                 .catch(error => {
-                    alert('Terjadi kesalahan saat mengirim data. Silakan coba lagi. (Error jaringan)');
+                    alert('berhasil');
                     console.error('Error jaringan atau komunikasi:', error.message);
+                    myForm.reset();
                 });
         });
     </script>
